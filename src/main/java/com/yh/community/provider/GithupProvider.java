@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @Component
 public class GithupProvider {
-    public String getAccessToken(AccessTokenDTO accessTokenDTO){
+    public String getAccessToken(AccessTokenDTO accessTokenDTO){//模拟post请求   携带code发送到github返回access_token
          MediaType mediaType
                 = MediaType.get("application/json; charset=utf-8");
 
@@ -33,8 +33,7 @@ public class GithupProvider {
         return null;
     }
 
-
-    public GithubUser getUser(String accessToken){
+    public GithubUser getUser(String accessToken){//模拟解析token的get方法
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://api.github.com/user?access_token="+accessToken)
