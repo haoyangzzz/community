@@ -1,0 +1,26 @@
+body{
+    background-color: #c0c0c0;
+}
+.main{
+    margin: 30px;
+}
+.btnstyle{
+    float: right;
+    margin-bottom: 15px;
+}
+#tishixinxi{
+    color: #999999;
+}
+.media-object{
+    width: 38px;
+}
+
+.text-desc{
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+}
+
+.list-group{
+    margin-top: 41px;
+}

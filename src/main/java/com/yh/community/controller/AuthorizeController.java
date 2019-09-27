@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 @Controller
-public class AuthorizeController {
+public class AuthorizeController {  //授权控制层
     @Autowired
     private UserMapper userMapper;
     @Autowired
@@ -43,7 +43,7 @@ public class AuthorizeController {
         GithubUser githubUser = githupProvider.getUser(accessToken);
         //System.out.println(githubUser.getName());
 
-        if(githubUser != null){
+        if(githubUser != null && githubUser.getId() != null){
             User user = new User();
             String token = UUID.randomUUID().toString(); //登录成功后，获取到用户信息然后生成一个token，将它写入到cookie
             user.setToken(token);
@@ -51,6 +51,7 @@ public class AuthorizeController {
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
+            user.setAvatarUrl(githubUser.getAvatar_url());
             userMapper.insert(user);
             response.addCookie(new Cookie("token", token));//response设置的cookie
 

@@ -1,5 +1,7 @@
 package com.yh.community.model;
 
+
+
 public class User {
     private Integer id;
     private String name;
@@ -7,6 +9,28 @@ public class User {
     private String token;
     private Long gmtCreate;
     private Long gmtModified;
+    private String avatarUrl;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", accountId='" + accountId + '\'' +
+                ", token='" + token + '\'' +
+                ", gmtCreate=" + gmtCreate +
+                ", gmtModified=" + gmtModified +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                '}';
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
 
     public Integer getId() {
         return id;
